@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Starter</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../../../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../../plugins/fontawesome-free-5.15.4-web/css/all.min.css">
+  <!-- Theme style -->
+    <link rel="stylesheet" href="../../../../dist/css/add.css">
+    <link rel="stylesheet" href="../../../../dist/css/styleAdd.css">
+    <link rel="stylesheet" href="../../../../dist/css/bg.css">
+    <link rel="stylesheet" href="../../../../dist/css/adminlte.css">
+<body>
+
+ <p><h3>객실 정보(*반드시 입력해주세요)</h3></p>
+ 
+	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th scope="row">*객실 타입 명칭</th>
+	      <td colspan="3">
+	      
+			<div class="row">	
+		         <div class="col-3-sm">
+		         <span class="form-group">
+		            <label for="Standard">규격(옵션)</label><br>
+		       			<select>
+							<option > Standard</option>
+							<option > Deluxe</option>
+							<option > Superior</option>
+					</select>
+		           </span>
+		         </div>
+		         &nbsp; 
+		         &nbsp; 
+		         <div class="col-3-sm">
+		         	<span class="form-group">
+			            <label for="Style">스타일(옵션)</label><br>
+			       			<select>
+								<option > Sea view</option>
+								<option > Mountain view</option>
+								<option > City view</option>
+							</select>
+		        	 </span>
+		         </div>
+		         &nbsp; 
+		         &nbsp; 
+		         <div class="col-3-sm">
+		         <span class="form-group">
+		            <label for="Roomtype">객실타입</label><br>
+		       			<select>
+						<option > Single room</option>
+						<option > Double room</option>
+						<option > Twin room</option>
+					</select>
+		           </span>
+		         </div>
+		         &nbsp; 
+		         &nbsp; 
+          </div><br>
+          <p>한국어 <input type="text" name="Room_name_manager_kor"></p>
+          <p>영어 <input type="text" name="Room_name_manager_eng"></p>
+          
+         
+	    </td>
+    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">*면적</th>
+	      <td colspan="3"><input type="text" name="Area"> m2</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">*층수</th>
+	      <td colspan="3">
+	      	<input type="text" name="Floor_num"> 층
+	      </td>
+	    </tr>
+	    <tr>
+	      <th scope="row">*객실수량</th>
+	      <td colspan="3">
+	      	<input type="text" name="room_count"> 개
+	      </td>
+	    </tr>
+   	    <tr>
+	      <th scope="row">인터넷</th>
+	      <td colspan="3">
+	      	인터넷 사용 가능 <input type="radio" name="Internet" checked>
+	      	&nbsp; 
+	      	인터넷 사용 불가 <input type="radio" name="Internet" > <br>
+	      </td>
+	    </tr>
+	    <tr>
+	      <th scope="row">금연 정보</th>
+	      <td colspan="3">
+	      	금연 <input type="radio" name="No_smoking" checked>
+	      	&nbsp; 
+	      	흡연 가능 <input type="radio" name="No_smoking" > <br>
+	      </td>
+	    </tr>
+	    <tr>
+	      <th scope="row">창문</th>
+	      <td colspan="3">
+	      	창문 있음 <input type="radio" name="Window" checked>
+	      	&nbsp; 
+	      	창문 없음 <input type="radio" name="Window" > <br>
+	      </td>
+	    </tr>
+	    <tr>
+	      <th scope="row">침대 유형</th>
+	      <td colspan="3">
+	      	<p> 
+		      	객실타입만 설정하기 <input type="radio" name="Room_bedtype" checked>
+		      	&nbsp; 
+		      	&nbsp; 
+		      	&nbsp; 	      	
+		      	여러방에 다른 침대 유형 설정(게스트하우스) <input type="radio" name="Room_bedtype" > 
+	      	</p>
+	      	<p>
+	      		침실 <input type="text" name="Bed_in_livingroom_count"> 개
+		      	&nbsp; 
+		      	&nbsp; 
+		      	&nbsp; 	
+		      	거실 <input type="text" name="Bed_in_room_count"> 개
+	      	</p>
+	      	<p>
+	      		*침대유형 
+	    	  	&nbsp; 
+      			&nbsp; 	
+   				<select name="Bed_count">
+					<option > 1</option>
+					<option > 2</option>
+					<option > 3</option>
+				</select> 개
+	      	&nbsp; 
+	      	&nbsp; 
+	      		<select name="Bed_type">
+					<option > Single</option>
+					<option > Double</option>
+				</select>
+	      	</p>
+	      </td>
+	    </tr>
+	    <tr>
+	      <th scope="row">*최대 성인 수</th>
+	      <td colspan="3">
+			<select name="Max_adultsCount">
+				<option > 0</option>
+				<option > 1</option>
+				<option > 2</option>
+				<option > 3</option>
+				<option > 4</option>
+				<option > 5</option>
+			</select> 명
+	      </th>
+	    </tr>
+   	    <tr>
+	      <th scope="row">객실설명</th>
+	      <td colspan="3">
+	      	<textarea name="Room_explain" rows="3" cols="100"></textarea>
+	      </td>
+	    </tr>
+   	    <tr>
+	      <th scope="row">*객실 타입 사진</th>
+	      <td colspan="3">
+	      	<input type="button" name="Room_pic" value="사진등록">
+	      </td>
+	    </tr>
+	  </tbody>
+	</table><br>
+
+ <p><h3>판매 정보(*반드시 입력해주세요)</h3></p>
+	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th scope="row">선결제객실요금</th>
+	      <td colspan="3">
+		      <p>
+		      	조식인원 
+				<select name="Bk_people">
+					<option > 0</option>
+					<option > 1</option>
+					<option > 2</option>
+					<option > 3</option>
+					<option > 4</option>
+					<option > 5</option>
+				</select>
+		      </p>
+		      &nbsp; 
+		      <p>
+		       *유효기간 <input type="date" name="roomuse_startdate"> - <input type="date" name="roomuse_enddate">
+		      </p>
+		      &nbsp; 
+		      <p>
+				가격 명세표<br>
+				수수료 15% <br>
+				판매가격 <input type="text" name="Room_price"> KRW
+			  </p>
+			  &nbsp; 
+			  <p>
+			  	취소규정<br>
+			  	체크인 72시간 이전 무료 취소 / 이후 80% 차감 후 환불
+			  </p>
+				
+	      </td>
+	    </tr>
+	  </thead>
+	
+	</table>	
+<!-- jQuery -->
+<script src="../../../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../../dist/js/adminlte.js"></script>
+</body>
+</html>

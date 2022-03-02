@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Starter</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css?ver=1">
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free-5.15.4-web/css/all.min.css?ver=1">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../dist/css/add.css?ver=1">
+    <link rel="stylesheet" href="../../../dist/css/styleAdd.css?ver=1">
+    <link rel="stylesheet" href="../../../dist/css/bg.css?ver=1">
+    <link rel="stylesheet" href="../../../dist/css/adminlte.css?ver=1">
+    <link rel="stylesheet" href="../../../dist/css/addstyle.css?ver=1">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- 연락처 -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="fas fa-phone-square-alt"></i>
+                        <span class="text-xsm">연락처</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header">호텔 서포트팀</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="far fa fa-phone-alt mr-2"></i> <span class="text-sm"> 글로벌 핫라인</span>
+                            <span class="float-right text-muted text-sm">+44-20-3929 3737</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="far fa fa-phone-alt mr-2"></i> <span class="text-sm"> 한국</span>
+                            <span class="float-right text-muted text-sm">+82-2610 52115</span>
+                            <span class="display-right text-muted text-sm">every day 9:00-18:00</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="far fa fa-phone-alt mr-2"></i> <span class="text-sm"> 미국</span>
+                            <span class="float-right text-muted text-sm">+61-2905 67676</span>
+                            <span class="display-right text-muted text-sm">every day 9:00-18:00</span>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 도움센터 -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="text-xsm">도움센터</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header">
+                            <form class="">
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-navbar" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <button class="btn btn-navbar" type="button">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </span>
+                        <span class="dropdown-header">FAQ</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-sm text-muted">
+                            <i class="fas fa-question mr-2"></i> 호텔의 리뷰 수량이 왜 줄었나요?
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-sm text-muted">
+                            <i class="fas fa-question mr-2"></i> 선불금 추후 입금이란?
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-sm text-muted">
+                            <i class="fas fa-question mr-2"></i> 경쟁 호텔 관리 방법
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer text-xsm text-muted">
+                            <i class="fas fa-plus mr-2"></i>더보기
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="../../../dist/img/booking.PNG" alt="ebooking Logo" class="brand-image modify" style="opacity: .8">
+                <img src="../../../dist/img/booking_short.PNG" alt="ebooking Logo" class="brand-text ebookingImg" style="opacity: .8">
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-bed"></i>
+                                <p>
+                                    호텔관리
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active">
+                                        <i class="nav-icon fas fa-hotel"></i>
+                                        <p>호텔등록</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>호텔목록</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-calendar-check"></i>
+                                <p>
+                                    예약관리
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>예약목록</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-list fas"></i>
+                                        <p>취소목록</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    예약자관리
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>예약자목록</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <!--<li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>-->
+
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5></h5>
+                            <h4 class="mg_b0"><strong><i class="far fa-file-alt"></i> 취소목록</strong></h4>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+
+                    <!-- SEARCH -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form class="form-horizontal">
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mg_b5">
+                                        <button type="button" class="btn btn-warning btn-sm"><i class="fa fa-search fa-fw"></i> 검색</button>
+                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-redo-alt"></i> 새로고침</button>
+                                        <div class="pull-right">
+                                            <select class="form-control">
+                                                <option>NONE</option>
+                                                <option>30</option>
+                                                <option>60</option>
+                                                <option>90</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="card card-info" id="multiCollapseExample2">
+                                <div class="card-header search">
+                                    <strong><i class="fa fa-search fa-fw"></i> search</strong>
+                                    <div class="card-tools pull-right" style="margin-top:-4px;">
+                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <form class="form-horizontal" id="collapseOne" class="collapse" aria-labelledby="multiCollapseExample2" data-parent="#multiCollapseExample2">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for=" " class="col-sm-1 control-label">조회기간</label>
+                                            <div class="col-sm-5">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" class="form-control" value="2018-01-04" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default btn-flat" type="button"><i class="fa fa-calendar fa-fw"></i></button>
+                                                    </span>~
+                                                    <input type="text" class="form-control" value="2018-01-05" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default btn-flat" type="button"><i class="fa fa-calendar fa-fw"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <label for=" " class="col-sm-1 control-label">호텔명칭</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option>호텔</option>
+                                                    <option>게스트하우스</option>
+                                                </select>
+                                            </div>
+                                            <label for=" " class="col-sm-1 control-label">규격</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option> </option>
+                                                    <option> </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for=" " class="col-sm-1 control-label">스타일</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option></option>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+
+                                            <label for=" " class="col-sm-1 control-label">객실타입</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option></option>
+                                                </select>
+                                            </div>
+
+                                            <label for=" " class="col-sm-1 control-label">객실명</label>
+                                            <div class="col-sm-2">
+                                                <input class="form-control" type="text" placeholder="">
+                                            </div>
+                                            
+                                            <label for=" " class="col-sm-1 control-label">상태</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option>취소</option>
+                                                    <option>환불완료</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for=" " class="col-sm-1 control-label">결제일</label>
+                                            <div class="col-sm-2">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" class="form-control" value="2018-01-04" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default btn-flat" type="button"><i class="fa fa-calendar fa-fw"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <label for=" " class="col-sm-1 control-label">취소일</label>
+                                            <div class="col-sm-2">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" class="form-control" value="2018-01-04" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default btn-flat" type="button"><i class="fa fa-calendar fa-fw"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--// SEARCH -->
+                    <!--table-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="table-responsive type1">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="txt-c">No.</th>
+                                                <th class="txt-c">조회기간</th>
+                                                <th class="txt-c">호텔명칭</th>
+                                                <th class="txt-c">규격</th>
+                                                <th class="txt-c">스타일</th>
+                                                <th class="txt-c">객실타입</th>
+                                                <th class="txt-c">객실명</th>
+                                                <th class="txt-c">상태</th>
+                                                <th class="txt-c">체크인</th>
+                                                <th class="txt-c">체크아웃</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr onclick="" style="cursor: pointer;">
+                                                <td class="txt-r">1</td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                                <td class="txt-c"> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--          
+                    <br>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".filter_make"> Filter</button>
+                    <button data-toggle="modal" data-target=".model_Popup">구매이력</button>
+        -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--table-->
+
+
+
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                We support your trip.
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2021-12. <a href="#">HOME3</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../dist/js/adminlte.js"></script>
+</body></html>

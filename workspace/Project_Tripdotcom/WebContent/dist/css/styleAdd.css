@@ -1,0 +1,91 @@
+.ebookingImg{
+    height: 30px;
+}
+.brand-link .brand-image.modify{
+    /* margin-left: 1.8rem; */
+}
+.display-right{
+    display: block;
+    text-align: right;
+}
+.text-xsm{
+    font-size: 0.8rem !important;
+}
+.wrapper_content{
+    margin: 0 100px;
+}
+img.tripdotcomLogo{
+    width: 140px;
+    margin-left: 80px;
+}
+.index .myPage.dropdown-menu-lg{
+    max-width: 250px;
+    min-width: 180px;
+}
+.index .navbar-search-block{
+        left: initial;
+        width: 300px;
+        right: 290px;
+}
+
+.index .content-wrapper{
+    margin-left: 0px !important;
+}
+
+@media (min-width: 992px){
+    .sidebar-mini.sidebar-collapse .index .content-wrapper{
+        margin-left: 0 !important;
+    }
+}
+.index .main-footer{
+    margin-left: 100px !important;
+}
+.pd_0{
+    padding: 0px;
+}
+.width_600{
+    width: 600px;
+}
+.mg_0{
+    margin: 0px;
+}
+.hotels-destination{
+    border: 1px solid #d9d9d9;
+}
+.hotels-destination .control-label{
+    position: absolute;
+    color: #9f9f9f;
+    font-weight: 300;
+    margin: 6px 11px;
+    font-size: 15px;
+}
+.hotels-destination input{
+    box-sizing: border-box;
+    height: 71px;
+    padding: 32px 16px 0;
+    border-radius: 2px 0 0 2px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+    color: #0f294d!important;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 2;
+    outline: 0;
+    font-weight: 700;
+    
+}
+.hotels-destination input:focus{
+    border-bottom: 2px solid #3264ff;
+}
+.hotels-destination .dropdown-menu{
+    border-radius: 0 0 0.25rem 0.25rem;
+    margin: 0;
+}
+.hotels-destination .dropdown-menu .dropdown-item{
+    border-radius: 0 0 0.25rem 0.25rem;
+}

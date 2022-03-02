@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+	<insert id="join" parameterType="com.koreait.user.dto.UserBean" >
+		INSERT INTO TRIP_USER (USER_ID ,USER_EMAIL,USER_PW,USER_JOINDATE) VALUES (TRIP_USER_seq.nextval,#{user_email},#{user_pw},sysdate)
+	</insert>
+	
+	<select id="login" parameterType="com.koreait.user.dto.UserBean" resultType="com.koreait.user.dto.UserBean">
+		SELECT * FROM TRIP_USER tu WHERE USER_EMAIL = #{user_email} AND USER_PW = #{user_pw}
+	</select>
+	
+	<select id="getReservation" parameterType="_int" resultType="com.koreait.user.dto.ReservationPaymentsBean">
+		SELECT * FROM RESERVATION_PAYMENTS WHERE USER_ID = #{user_id}
+	</select>
+	
+	
+	<select id="getResList" resultType="com.koreait.user.dto.ReservationPaymentsBean" parameterType="hashmap">
+	 SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM RESERVATION_PAYMENTS WHERE user_id = #{user_id} ORDER BY RESERVATION_ID DESC) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="getYetPaidList" resultType="com.koreait.user.dto.ReservationPaymentsBean" parameterType="hashmap">
+	 SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM RESERVATION_PAYMENTS WHERE user_id = #{user_id} AND RESERVATION_STATE ='결제대기' ORDER BY RESERVATION_ID DESC) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="getPaidList" resultType="com.koreait.user.dto.ReservationPaymentsBean" parameterType="hashmap">
+	 SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM RESERVATION_PAYMENTS WHERE user_id = #{user_id} AND RESERVATION_STATE ='결제완료' ORDER BY RESERVATION_ID DESC) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="resAllCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM RESERVATION_PAYMENTS rp WHERE USER_ID =#{user_id}
+	</select>
+	
+	<select id="yetPaidCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM RESERVATION_PAYMENTS rp WHERE USER_ID =#{user_id} AND RESERVATION_STATE ='결제대기'
+	</select>
+
+	<select id="PaidCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM RESERVATION_PAYMENTS rp WHERE USER_ID =#{user_id} AND RESERVATION_STATE ='결제완료'
+	</select>
+
+	<select id="bookmarkCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM BOOKMARK rp WHERE USER_ID =#{user_id}
+	</select>
+	
+	<select id="getBookmarkList" resultType="com.koreait.user.dto.BookmarkBean" parameterType="hashmap">
+	 SELECT * FROM 
+	(SELECT rownum R, d.*
+		FROM (SELECT * FROM BOOKMARK WHERE user_id = #{user_id}) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<delete id="bookmarkDelete" parameterType="_int">
+		DELETE FROM BOOKMARK b WHERE BOOKMARK_ID = #{bookmarkId}
+	</delete>
+	
+	<update id="userInfoUpdate" parameterType="com.koreait.user.dto.UserBean">
+		UPDATE TRIP_USER SET USER_LASTNAME =#{user_lastname},USER_FIRSTNAME =#{user_firstname} ,
+		USER_EMAIL =#{user_email},USER_GENDER =#{user_gender},user_birth=#{user_birth}
+		 WHERE USER_ID =#{user_id}
+	</update>
+	<update id="userAccountUpdate" parameterType="com.koreait.user.dto.UserBean">
+		UPDATE TRIP_USER SET USER_EMAIL =#{user_email},USER_PW =#{user_pw} WHERE USER_ID =#{user_id}
+	</update>
+	
+	<select id="getUseCoinList" parameterType="hashmap" resultType="com.koreait.user.dto.TripCoinBean">
+		 SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM TRIP_COIN tc WHERE user_id = #{user_id} AND COIN_USE_DATE IS NOT NULL ORDER BY coin_id ) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	 
+	</select>
+
+	<select id="getChargeCoinList" parameterType="hashmap" resultType="com.koreait.user.dto.TripCoinBean">
+		 SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM TRIP_COIN tc WHERE user_id = #{user_id} AND COIN_CHARGE_DATE IS NOT NULL ORDER BY coin_id ) D ) B
+	 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+
+	<select id="getCanReviewList" parameterType="hashmap" resultType="com.koreait.user.dto.ReservationPaymentsBean">
+		SELECT * FROM 
+		(SELECT rownum R, d.*
+			FROM (SELECT * FROM (SELECT * FROM RESERVATION_PAYMENTS rp2 WHERE USER_ID = #{user_id}
+			AND NOT EXISTS(SELECT * FROM REVIEW r3 WHERE r3.RESERVATION_ID = rp2.RESERVATION_ID)
+			order by rp2.RESERVATION_ID)
+		WHERE RESERVATION_STATE ='결제완료'
+		AND TO_CHAR(SYSDATE,'yyyymmdd') > TO_CHAR(checkout_date,'yyyymmdd')) D ) B
+		 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+
+	<select id="getCanUpdateReviewList" parameterType="hashmap" resultType="com.koreait.user.dto.ReviewBean">
+		 SELECT * FROM 
+		(SELECT rownum R, d.*
+		FROM (SELECT * FROM (SELECT * 
+		FROM  REVIEW r2 INNER JOIN RESERVATION_PAYMENTS rp ON (r2.RESERVATION_ID = rp.RESERVATION_ID)
+		WHERE rp.USER_ID = #{user_id}
+		AND EXISTS(SELECT * FROM REVIEW r3 WHERE r3.RESERVATION_ID = rp.RESERVATION_ID)
+		ORDER BY rp.RESERVATION_ID)
+		WHERE RESERVATION_STATE ='결제완료'
+		AND TO_CHAR(SYSDATE,'yyyymmdd') > TO_CHAR(checkout_date,'yyyymmdd')) D ) B
+		 WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+
+	<select id="getCanReviewCount" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM (SELECT * FROM RESERVATION_PAYMENTS rp2 WHERE USER_ID = #{user_id}
+		AND NOT EXISTS(SELECT * FROM REVIEW r3 WHERE r3.RESERVATION_ID = rp2.RESERVATION_ID))
+		WHERE RESERVATION_STATE ='결제완료'
+		AND TO_CHAR(SYSDATE,'yyyymmdd') > TO_CHAR(checkout_date,'yyyymmdd')
+	</select>
+
+	<select id="getCanUpdateReviewCount" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM (SELECT * FROM RESERVATION_PAYMENTS rp2 WHERE USER_ID = #{user_id}
+		AND EXISTS(SELECT * FROM REVIEW r3 WHERE r3.RESERVATION_ID = rp2.RESERVATION_ID))
+		WHERE RESERVATION_STATE ='결제완료'
+		AND TO_CHAR(SYSDATE,'yyyymmdd') > TO_CHAR(checkout_date,'yyyymmdd')
+	</select>
+	
+	<insert id="insertReview" parameterType="com.koreait.user.dto.ReviewBean">
+	INSERT INTO REVIEW VALUES(review_seq.nextval,#{reservation_id},#{review_clean},#{review_location},#{review_facilities},#{review_service},#{review_trip_member},#{review_content})
+	</insert>
+	
+	<update id="updateReview" parameterType="com.koreait.user.dto.ReviewBean">
+	UPDATE REVIEW SET REVIEW_CLEAN =#{review_clean},REVIEW_LOCATION =#{review_location},REVIEW_FACILITIES =#{review_facilities},REVIEW_SERVICE =#{review_service},REVIEW_TRIP_MEMBER = #{review_trip_member},REVIEW_CONTENT = #{review_content} WHERE RESERVATION_ID = #{reservation_id}
+	</update>
+	
+	<select id="getUseCoinCount" parameterType="_int" resultType="_int">
+	SELECT count(*) FROM TRIP_COIN tc WHERE COIN_USE_DATE IS NOT NULL 
+	AND USER_ID = #{user_id}
+	</select>
+
+	<select id="getChargeCoinCount" parameterType="_int" resultType="_int">
+	SELECT count(*) FROM TRIP_COIN tc WHERE COIN_CHARGE_DATE IS NOT NULL 
+	AND USER_ID = #{user_id}
+	</select>
+	
+	<delete id="deleteReview" parameterType="_int">
+	delete from review where review_id = #{review_id} 
+	</delete>
+</mapper>
+
+
+
+
+
